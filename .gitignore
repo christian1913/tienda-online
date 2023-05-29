@@ -15,16 +15,6 @@ __pycache__/
 db.sqlite3
 *.sqlite3-journal
 
-# Ignora los directorios específicos de Django
-/static/
-/media/
-/staticfiles/
-
-# Ignora los archivos específicos de Django
-local_settings.py
-
-# Ignora los archivos de documentación
-/Documentacion/
 
 # Ignora los archivos del sistema
 .DS_Store
