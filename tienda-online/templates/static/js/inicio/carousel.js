@@ -1,0 +1,50 @@
+{% load static %}
+
+<div class="container-fluid p-0 mb-5">
+    <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="w-100" src="{% static 'img/portada-1.jpg'%}" alt="Image" style="max-height: 600px;">
+                <div class="carousel-caption d-flex align-items-center">
+                    <div class="container">
+                        <div class="row align-items-center justify-content-center justify-content-lg-start">
+                            <div class="col-10 col-lg-7 text-center text-lg-start">
+                                <h6 class="text-white text-uppercase mb-3 animated slideInDown">// Revive la Historia, Decora tu Presente //</h6>
+                                <h3 class="display-4 text-white mb-4 pb-3 animated slideInDown"> Encuentra Antigüedades Únicas en Nuestra Tienda Online </h3>
+                                <a href="{% url 'tienda' %}" class="btn btn-primary py-3 px-5 animated slideInDown">IR A LA TIENDA<i class="fa fa-arrow-right ms-3"></i></a>
+                            </div>
+                            <div class="col-lg-5 d-none d-lg-flex animated slideInDown">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="w-100" src="{% static 'img/antique-clock.jpg'%}" alt="Image" style="max-height: 600px;">
+                <div class="carousel-caption d-flex align-items-center">
+                    <div class="container">
+                        <div class="row align-items-center justify-content-center justify-content-lg-start">
+                            <div class="col-10 col-lg-7 text-center text-lg-start">
+                                <h6 class="text-white text-uppercase mb-3 animated slideInDown">// Descubre el encanto del pasado //</h6>
+                                <h3 class="display-4 text-white mb-4 pb-3 animated slideInDown">Explora Nuestra Colección de Antigüedades</h3>
+                                <a href="" class="btn btn-primary py-3 px-5 animated slideInDown">VER ANTIGUEDADES<i class="fa fa-arrow-right ms-3"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#header-carousel"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+<!-- Carousel End -->

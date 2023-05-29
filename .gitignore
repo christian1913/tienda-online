@@ -1,0 +1,35 @@
+# Ignora los archivos de configuración local
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.so
+
+# Ignora todos los archivos __init__.py
+**/__init__.py
+
+# Ignora todas las carpetas migrations
+**/migrations/
+
+# Ignora los archivos de la base de datos
+db.sqlite3
+*.sqlite3-journal
+
+# Ignora los directorios específicos de Django
+/static/
+/media/
+/staticfiles/
+
+# Ignora los archivos específicos de Django
+local_settings.py
+
+# Ignora los archivos de documentación
+/Documentacion/
+
+# Ignora los archivos del sistema
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
