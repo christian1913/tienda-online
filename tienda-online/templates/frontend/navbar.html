@@ -39,6 +39,9 @@
                         <a href="contact.html" class="nav-item nav-link {% if request.path == '/contact/' %}active{% endif %}">Contacto</a>
                     </div>
                     </div>
+                    <div>
+                    <a href="{% url 'usuario' %}" class="dropdown-item" type="button">Iniciar Sesión</a>
+                    </div>
                     <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
                         <a href="{% url 'carrito' %}" class="btn px-0 ml-3">
                             <i class="fas fa-shopping-cart text-primary"></i>

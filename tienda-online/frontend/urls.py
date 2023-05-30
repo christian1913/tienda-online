@@ -12,5 +12,7 @@ urlpatterns = [
 
     path('' , include('frontend.inicio.urls')),
 
+    path('' , include('frontend.usuario.urls')),
+
  
 ]

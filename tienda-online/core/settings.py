@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'frontend.tienda',
     'frontend.productos',
     'frontend.inicio',
+    'frontend.usuario',
     'backend',
 ]
 
