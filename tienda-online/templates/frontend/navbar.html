@@ -29,7 +29,7 @@
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="collapse navbar-collapse justify-content-between align-items-center" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
                         <a href="{% url 'inicio' %}" class="nav-item nav-link {% if request.path == '/' %}active{% endif %}">Inicio</a>
                         <a href="{% url 'tienda' %}" class="nav-item nav-link {% if request.path == '/tienda/' %}active{% endif %}">Tienda</a>
@@ -42,27 +42,40 @@
                         </div>
                         <a href="contact.html" class="nav-item nav-link {% if request.path == '/contact/' %}active{% endif %}">Contacto</a>
                     </div>
-                    </div>
-                    <div>
-
+                        
+                    <div class="navbar-nav ml-auto py-0 d-none d-lg-flex">
                         {% if user.is_authenticated %}
-                            <p>Bienvenido, {{ user.username }}!</p>
-                            <a href="{% url 'logout' %}">Cerrar sesión</a>
+                          <div style="display: flex;">
+                            <div style="margin-right: 10px;">
+                              <a class="btn d-flex align-items-center justify-content-between bg-primary" data-toggle="collapse" href="#navbar-vertical-user" style="height: 65px; padding: 0 30px;">
+                                <h6 class="text-dark m-0">{{ user.username }}!</h6>
+                                <i class="fa fa-angle-down text-dark"></i>
+                              </a>
+                              <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical-user" style="width: calc(100% - 30px); z-index: 999;">
+                                <div class="navbar-nav w-100">
+                                <a href="" class="nav-item">Perfil</a>              
+                                <a href="{% url 'logout' %}" class="nav-item">Cerrar sesión</a>              
+                                </div>
+                              </nav>
+                            </div>
+                          </div>
                         {% else %}
-                            <button class="login" onclick="toggleModal('login')">Iniciar sesión</button>
+                          <button class="login" onclick="toggleModal('login')">Iniciar sesión</button>
                         {% endif %}
-                    
-                        <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
-                            <a href="{% url 'carrito' %}" class="btn px-0 ml-3">
+                        <div style="display: flex; justify-content: center; align-items: center;">
+                            <div class="align-items-center">
+                              <a href="{% url 'carrito' %}" class="btn px-0 ml-3">
                                 <i class="fas fa-shopping-cart text-primary"></i>
                                 <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
-                            </a>
+                              </a>
+                            </div>
                         </div>
-                    </div> 
-
+                      </div>
+                      
                 </div>
             </nav>
         </div>
     </div>
 </div>
+
 <!-- Navbar End -->
