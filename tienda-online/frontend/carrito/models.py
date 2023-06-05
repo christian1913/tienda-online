@@ -11,12 +11,13 @@ class ElementosCarrito(models.Model):
 
 
 class Carrito(models.Model):
-    usuario = models.OneToOneField(User, on_delete=models.CASCADE)
+    usuario = models.OneToOneField(User, null=True, on_delete=models.CASCADE)  
+    session_key = models.CharField(max_length=32, null=True)  
     carrito = models.ManyToManyField(ElementosCarrito, blank=True)
     fecha = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'Carrito de {self.usuario.username}'
+        return f'Carrito de {self.usuario.username if self.usuario else self.session_key}'
 
 
  
