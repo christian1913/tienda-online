@@ -1,18 +1,13 @@
-
 from pathlib import Path
 import os
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# PATH
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-%_k3xn-v&r!pxuap09pg_nr&3r$qm01v10(l2_9pmd=nuh5e&f'
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# MODO DE PRODUCCION
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
@@ -20,7 +15,7 @@ ALLOWED_HOSTS = ["*"]
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
 
-# Application definition
+# APLICACIONES
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -68,20 +63,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-
-# Password validation
-# https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -98,29 +85,26 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/4.1/topics/i18n/
-
+# INTERNACIONAL
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.1/howto/static-files/
-
+# STATIC
 STATIC_URL = 'static/'
-
 MEDIA_URL = 'media/'
-
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'templates/static'),)
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# COOKIES
+SESSION_COOKIE_NAME = 'sessionid'  
+SESSION_COOKIE_AGE = 1209600  
+SESSION_COOKIE_SECURE = False  # Poner en True cuando el certificado SSL este implementado
+SESSION_COOKIE_HTTPONLY = True
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+
+CSRF_COOKIE_SECURE = False # Poner en True cuando el certificado SSL este implementado
+CSRF_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SAMESITE = 'Lax'
+CSRF_COOKIE_SAMESITE = 'Lax'
