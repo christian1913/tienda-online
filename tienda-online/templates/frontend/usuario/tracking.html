@@ -1,0 +1,27 @@
+{% load static %}
+
+<div class="tab-pane fade" id="track-orders" role="tabpanel" aria-labelledby="track-orders-tab">
+    <div class="card">
+        <div class="card-header">
+            <h5 class="mb-0">Tracking de mis pedidos</h5>
+        </div>
+        <div class="card-body contact-from-area">
+            <p>Para rastrear tu pedido, ingresa tu ID de pedido en el cuadro de abajo y presiona el botón "Rastrear". Este se te proporcionó en tu recibo y en el correo electrónico de confirmación que deberías haber recibido.</p>
+            <div class="row">
+                <div class="col-lg-8">
+                    <form class="contact-form-style mt-30 mb-50" action="#" method="post">
+                        <div class="input-style mb-3">
+                            <label>Tracking ID</label>
+                            <input name="order-id" placeholder="Tracking ID recibido en el email de confirmación" type="text" class="square">
+                        </div>
+                        <div class="input-style mb-3">
+                            <label>Email</label>
+                            <input name="billing-email" placeholder="Introduce tu email" type="email" class="square">
+                        </div>
+                        <button class="bg-primary submit submit-auto-width" type="submit">Rastrear</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
