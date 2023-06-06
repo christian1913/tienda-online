@@ -4,7 +4,7 @@
   <div class="popup-content">
     <span onclick="toggleModal('login')" class="close">&times;</span>
 
-    <form class="loginForm" action="" method="POST" id="form-login">
+    <form class="loginForm" action="{% url 'inicio-sesion' %}" method="POST" id="form-login">
       {% csrf_token %}
       <h6>Correo Electrónico</h6>
       <div class="loginInputBox">
