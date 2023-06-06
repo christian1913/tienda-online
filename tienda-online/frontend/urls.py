@@ -14,6 +14,10 @@ urlpatterns = [
 
     path('' , include('frontend.usuario.urls')),
 
+    path('' , include('frontend.nosotros.urls')),
+    
+    path('' , include('frontend.contacto.urls')),
+
     # Frontend
 
     path('login/', views.inicio_sesion, name='inicio-sesion'),

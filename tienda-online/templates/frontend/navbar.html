@@ -33,22 +33,16 @@
                     <div class="navbar-nav mr-auto py-0">
                         <a href="{% url 'inicio' %}" class="nav-item nav-link {% if request.path == '/' %}active{% endif %}">Inicio</a>
                         <a href="{% url 'tienda' %}" class="nav-item nav-link {% if request.path == '/tienda/' %}active{% endif %}">Tienda</a>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down mt-1"></i></a>
-                            <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                                <a href="{% url 'carrito' %}" class="dropdown-item {% if request.path == '/cart/' %}active{% endif %}">Shopping Cart</a>
-                                <a href="checkout.html" class="dropdown-item {% if request.path == '/checkout/' %}active{% endif %}">Checkout</a>
-                            </div>
-                        </div>
-                        <a href="contact.html" class="nav-item nav-link {% if request.path == '/contact/' %}active{% endif %}">Contacto</a>
+                        <a href="{% url 'sobre-nosotros' %}" class="nav-item nav-link {% if request.path == '/sobre-nosotros/' %}active{% endif %}">Sobre Nosotros</a>
+                        <a href="{% url 'contacto' %}" class="nav-item nav-link {% if request.path == '/contacto/' %}active{% endif %}">Contacto</a>
                     </div>
                         
                     <div class="navbar-nav ml-auto py-0 d-none d-lg-flex">
                         {% if user.is_authenticated %}
                         <div style="display: flex;">
                           <div style="margin-right: 10px;">
-                            <a class="btn d-flex align-items-center justify-content-between bg-primary" data-toggle="collapse" href="#navbar-vertical-user" style="height: 65px; padding: 0 30px;">
-                              <h6 class="text-dark m-0">{{ user.username }}</h6>
+                            <a class="btn d-flex align-items-center justify-content-between bg-primary rounded-pill" data-toggle="collapse" href="#navbar-vertical-user" style="height: 37px; padding: 0 30px;">
+                              <h6 class="text-dark m-0" style="line-height: 1;">{{ user.username }}</h6>
                               <i class="fa fa-angle-down text-dark" style="margin-left: auto;"></i>
                             </a>
                             <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical-user" style="width: 230px; z-index: 999;">

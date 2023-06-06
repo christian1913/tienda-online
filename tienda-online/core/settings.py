@@ -30,6 +30,8 @@ INSTALLED_APPS = [
     'frontend.productos',
     'frontend.inicio',
     'frontend.usuario',
+    'frontend.nosotros',
+    'frontend.contacto',
     'backend',
 ]
 
