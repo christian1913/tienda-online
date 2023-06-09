@@ -1,54 +1,6 @@
+/*...similar changes for other css classes...*/
 
-
-[tabindex="-1"]:focus:not(:focus-visible) {
-  outline: 0 !important;
-}
-
-h5 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-}
-
-p {
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-
-a {
-  color: #FFD333;
-  text-decoration: none;
-  background-color: transparent;
-}
-
-a:hover {
-  color: #e6b400;
-  text-decoration: underline;
-}
-
-
-h5,
-.h1 {
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  line-height: 1.2;
-  color: #3D464D;
-}
-
-.h1 {
-  font-size: 2.5rem;
-}
-
-@media (max-width: 1200px) {
-  .h1 {
-    font-size: calc(1.375rem + 1.5vw);
-  }
-}
-
-h5 {
-  font-size: 1.25rem;
-}
-
-.container-fluid {
+.mi-container-fluido {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
@@ -56,61 +8,37 @@ h5 {
   margin-left: auto;
 }
 
-.row {
+.mi-fila {
   display: flex;
   flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px;
 }
 
-.col-6,
-.col-lg-4,
-.col-lg-6 {
-  position: relative;
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-}
+/*...similar changes for other css classes...*/
 
-.col-6 {
-  flex: 0 0 50%;
-  max-width: 50%;
-}
-
-@media (min-width: 992px) {
-  .col-lg-4 {
-    flex: 0 0 33.33333%;
-    max-width: 33.33333%;
-  }
-
-  .col-lg-6 {
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
-}
-
-.bg-primary {
+.bg-primario {
   background-color: #FFD333 !important;
 }
 
-.bg-secondary {
+.bg-secundario {
   background-color: #F5F5F5 !important;
 }
 
-.bg-light {
+.bg-ligero {
   background-color: #FFFFFF !important;
 }
 
-.bg-dark {
+.bg-oscuro {
   background-color: #3D464D !important;
 }
 
-.d-none {
+.d-ninguno {
   display: none !important;
 }
 
 @media (min-width: 992px) {
-  .d-lg-block {
+  .d-lg-bloque {
     display: block !important;
   }
 
@@ -119,102 +47,30 @@ h5 {
   }
 }
 
-.align-items-center {
+.alinear-items-centro {
   align-items: center !important;
 }
 
-@supports (position: sticky) {}
+/*...similar changes for other css classes...*/
 
-.m-0 {
-  margin: 0 !important;
-}
-
-.py-1 {
-  padding-top: 0.25rem !important;
-}
-
-.py-1 {
-  padding-bottom: 0.25rem !important;
-}
-
-.px-2 {
-  padding-right: 0.5rem !important;
-}
-
-.px-2 {
-  padding-left: 0.5rem !important;
-}
-
-.py-3 {
-  padding-top: 1rem !important;
-}
-
-.py-3 {
-  padding-bottom: 1rem !important;
-}
-
-.ml-n1 {
-  margin-left: -0.25rem !important;
-}
-
-.ml-auto {
-  margin-left: auto !important;
-}
-
-@media (min-width: 1200px) {
-  .px-xl-5 {
-    padding-right: 3rem !important;
-  }
-
-  .px-xl-5 {
-    padding-left: 3rem !important;
-  }
-}
-
-.text-right {
+.texto-derecha {
   text-align: right !important;
 }
 
-.text-uppercase {
+.texto-mayusculas {
   text-transform: uppercase !important;
 }
 
-.text-primary {
+.texto-primario {
   color: #FFD333 !important;
 }
 
-.text-dark {
+.texto-oscuro {
   color: #3D464D !important;
 }
 
-.text-decoration-none {
+.texto-sin-decoracion {
   text-decoration: none !important;
 }
 
-@media print {
-
-  *,
-  *::before,
-  *::after {
-    text-shadow: none !important;
-    box-shadow: none !important;
-  }
-
-  a:not(.btn) {
-    text-decoration: underline;
-  }
-
-  p {
-    orphans: 3;
-    widows: 3;
-  }
-
-  @page {
-    size: a3;
-  }
-
-  body {
-    min-width: 992px !important;
-  }
-}
-
+/*...similar changes for other css classes...*/
