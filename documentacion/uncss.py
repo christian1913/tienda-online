@@ -1,22 +1,28 @@
-import subprocess
 import os
+import sys
+import subprocess
 
-def generate_optimized_css(html_path, css_path, output_path):
-    # Verifica que los archivos existen
-    if not os.path.isfile(html_path):
-        raise ValueError(f"No se encuentra el archivo HTML: {html_path}")
-    if not os.path.isfile(css_path):
-        raise ValueError(f"No se encuentra el archivo CSS: {css_path}")
+def apply_uncss(html_folder, css_folder):
+    for dirpath, dirnames, filenames in os.walk(html_folder):
+        for filename in filenames:
+            if filename.endswith('.html') and filename not in ['index.html', 'base.html']:
+                html_path = os.path.join(dirpath, filename)
+                relative_dir = os.path.relpath(dirpath, html_folder)
+                css_dir = os.path.join(css_folder, relative_dir)
+                os.makedirs(css_dir, exist_ok=True)
+                css_path = os.path.join(css_dir, filename.replace('.html', '.css'))
+                cmd = f'uncss {html_path} > {css_path}'
+                try:
+                    subprocess.run(cmd, shell=True, check=True)
+                except subprocess.CalledProcessError as e:
+                    print(f"Error al procesar {html_path}: {e}")
 
-    # Genera el comando
-    command = f"uncss -H {html_path} {css_path} > {output_path}"
+if __name__ == '__main__':
+    if len(sys.argv) != 3:
+        print("Usage: python script.py <html_folder> <css_folder>")
+        sys.exit(1)
 
-    # Ejecuta el comando
-    process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
-    process.wait()
+    html_folder = sys.argv[1]
+    css_folder = sys.argv[2]
 
-# Usa la función
-html_path = "C:\\Users\\User\\OneDrive\\Documentos\\GitHub\\tienda-online\\tienda-online\\templates\\frontend\\navbar.html"
-css_path = "C:\\Users\\User\\OneDrive\\Documentos\\GitHub\\tienda-online\\tienda-online\\templates\\static\\css\\navbar.css"
-output_path = "C:\\Users\\User\\OneDrive\\Documentos\\GitHub\\tienda-online\\tienda-online\\templates\\static\\css\\navbar2.css"
-generate_optimized_css(html_path, css_path, output_path)
+    apply_uncss(html_folder, css_folder)
