@@ -1,8 +1,143 @@
 {% load static %}
 
+<style>
+
+* {
+    font-family: Poppins,sans-serif;
+}
+  /* Modal Styling */
+  #login {
+    display: none; /* Hide the modal by default */
+    position: fixed;
+    z-index: 1000000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+
+  .popup-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    max-width: 400px;
+    border-radius: 5px;
+  }
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  /* Form Styling */
+  .loginForm {
+    margin-top: 20px;
+  }
+
+  .loginForm h6 {
+    margin: 10px 0;
+  }
+
+  .loginInputBox {
+    position: relative;
+    margin-bottom: 20px;
+  }
+
+  .icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #aaa;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+  }
+
+  .button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .button:hover {
+    background-color: #45a049;
+  }
+
+  .registerLink{
+    font-size: 12px;
+  }
+
+  .forgotPasswordLink{
+    font-size: 12px;
+  }
+
+/* RESPONSIVE */
+
+/* Large desktop screens */
+@media (max-width: 1200px) {
+    /* Your styles go here */
+}
+
+/* Small desktop screens */
+@media (max-width: 992px) {
+    /* Your styles go here */
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    /* Your styles go here */
+
+    
+    form {
+        width: calc(100% - 200px);
+        transition: width 0.2s ease-in-out;
+    }
+}
+
+/* Small tablets */
+@media (max-width: 600px) {
+    /* Your styles go here */
+}
+/* Small mobile devices and some older phones */
+@media (max-width: 480px) {
+    /* Your styles go here */
+    form {
+        width: calc(100% - 100px);
+    }
+}
+/* Small mobile devices */
+@media (max-width: 320px) {
+    /* Your styles go here */
+  }
+
+
+</style>
+
 <div id="login" class="modal popupContentWrapper">
   <div class="popup-content">
-    <span onclick="toggleModal('login')" class="close">&times;</span>
+    <span class="close">&times;</span>
 
     <form class="loginForm" action="{% url 'inicio-sesion' %}" method="POST" id="form-login">
       {% csrf_token %}
@@ -23,7 +158,38 @@
     <div class="loginOptions mt-3">
       <span class="registerLink">¿Aún no te has registrado? <a href="#" style="color:blue">Regístrate aqui</a>.</span>
       <br>
-      <span class="forgotPasswordLink">¿Olvidaste la contraseña? <a href="#" style="color:blue">Restablecer</a>.</span>
+      <span class="forgotPasswordLink">¿Olvidaste la contraseña? <a href="#" style="color:blue" id="open-reset">Restablecer</a>.</span>
     </div>
   </div>
 </div>
+
+<div id="reset" class="modal popupContentWrapper" style="display:none;">
+  <div class="popup-content">
+    <span onclick="toggleModal('reset')" class="close">&times;</span>
+
+    <form class="resetForm" action="{% url 'reset-password' %}" method="POST" id="form-reset">
+      {% csrf_token %}
+      <h6>Correo Electrónico</h6>
+      <div class="resetInputBox">
+        {{ form_reset.email }}
+        <i class="fas fa-envelope icon"></i>
+      </div>
+      <input type="submit" value="Restablecer Contraseña" class="button bg-primary text-dark">
+    </form>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $(".forgotPasswordLink a").click(function(e){
+    e.preventDefault();
+    $("#login").css('display', 'none');
+    $("#reset").css('display', 'block');
+  });
+
+  $(".close").click(function() {
+    $(this).closest(".modal").css('display', 'none');
+  });
+});
+</script>

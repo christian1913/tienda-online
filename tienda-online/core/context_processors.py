@@ -1,9 +1,10 @@
 from django.contrib.auth.forms import AuthenticationForm
 from frontend.carrito.models import Carrito
+from frontend.usuario.forms import PasswordResetForm
 
 
 def login_form(request):
-    return { 'login_form': AuthenticationForm() }
+    return { 'login_form': AuthenticationForm(), 'form_reset' : PasswordResetForm() }
 
 def cart_count(request):
     session_key = request.session.session_key
